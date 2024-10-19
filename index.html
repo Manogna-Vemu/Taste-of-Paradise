@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taste of Paradise</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <a class="navbar-brand" href="#about" onclick="showSection('about')">Taste of Paradise</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" onclick="showSection('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#search" onclick="showSection('search')">Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#favorites" onclick="showSection('favorites')">Favorites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" onclick="showSection('about')">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+
+    <div class="container" id="home" style="margin-top: 70px;">
+        <div class="text-center">
+            <h2>Welcome to <br/><i>Taste of Paradise</i></h2>
+            <p>Search for Inspiration, Cook with Passion, and Admire Taste of Heaven!</p>
+        </div>
+    </div>
+
+    <div class="container" id="search" style="display: none;">
+        <div class="loading-spinner" id="loading-spinner" style="display: none;">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        
+        <div class="text-center my-5">
+            <h2>Search for Meals</h2>
+        </div>
+        <div class="meal-search-box text-center">
+            <input type="text" class="form-control" placeholder="Enter an ingredient or dish name" id="search-input">
+            <select id="search-type" class="form-control">
+                <option value="ingredient">Ingredient</option>
+                <option value="dish">Dish Name</option>
+            </select>
+            <button type="submit" class="btn btn-danger" id="search-btn">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div>
+
+        <div class="dietary-preferences text-center my-3">
+            <label class="mr-3">
+                <input type="checkbox" id="vegetarian" value="Vegetarian"> Vegetarian
+            </label>
+            <label>
+                <input type="checkbox" id="vegan" value="Vegan"> Vegan
+            </label>
+        </div>
+
+        <div class="meal-result">
+            <h2 class="title">Search Results:</h2>
+            <div id="meal" class="meal-list"></div>
+        </div>
+
+        <div class="pagination text-center my-3">
+            <button class="btn btn-secondary" id="prev-btn">Previous</button>
+            <button class="btn btn-secondary" id="next-btn">Next</button>
+        </div>
+    </div>
+
+    <div class="container" id="favorites" style="display: none;">
+        <h2 id="favorites-title">Your Favorite Meals:</h2> 
+        <div id="favorites-list" class="meal-list"></div>
+        <p id="empty-favorites" style="display: none;">No favorite meals yet!</p> 
+        <div class="loading-spinner" id="loading-spinner" style="display: none;">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="about" class="about-section container my-5" style="display: none;">
+        <h2 class="about-heading text-center">About</h2> 
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="images/about2.jpeg" alt="About Image" class="img-fluid rounded large-img"> 
+            </div>
+            <div class="col-md-6">
+                <p>Welcome to Taste of Paradise, your ultimate recipe finder! Here, you can search for dishes by ingredient or name, discovering a world of culinary inspiration. Each recipe comes with a detailed description, guiding you through the cooking process. With your passion and love, transform simple ingredients into delightful dishes that will make the flavors dance on your palate. Experience the joy of cooking and savor the taste of heaven in every bite!</p>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="recipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="recipeModalLabel">Recipe</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="recipe-details">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
